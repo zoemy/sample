@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  navLinks = [{path:'user',label:'user profile',isActive:true},{path:'notes',label:'notes'},{path:'login',label:'login'}];
+  navLinks = [{path:'user',label:'user profile',isActive:true},
+              {path:'notes',label:'notes'},
+              {path:'login',label:'login'}];
 }

@@ -1,0 +1,30 @@
+<mat-toolbar  color="primary"> 
+    <span>Wallet App</span>
+    <span class="spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu"> 
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+            <mat-icon>fingerprint</mat-icon>
+            <span>Login</span>
+          </button> 
+          <button mat-menu-item>
+            <mat-icon>announcement</mat-icon>
+            <span>Issues</span>
+          </button> 
+          <button mat-menu-item>
+            <mat-icon>notifications_off</mat-icon>
+            <span>Disable alerts</span>
+          </button>  
+    </mat-menu>      
+</mat-toolbar>
+<nav mat-tab-nav-bar>
+  <a mat-tab-link
+           *ngFor="let link of navLinks"
+           [routerLink]="link.path"
+           routerLinkActive #rla="routerLinkActive"
+           [active]="rla.isActive">
+          {{link.label}}
+  </a>
+</nav>

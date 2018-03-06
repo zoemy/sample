@@ -12,14 +12,15 @@ import { CoreModule } from './core/core.module';
 import { LoginComponent } from './login/login.component';
 import { NotesComponent } from './notes/notes.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NotesComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
