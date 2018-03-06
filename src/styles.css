@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+body {
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #292b2c;
+    background-color: #fff;
+    margin:0;
+} 
+ .spacer {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    margin-top: 40px;
+} 
+.error-message{
+   animation: error-message 5000ms infinite;
+}
+
+.success-message{
+   animation: success-message 5000ms infinite;
+}
+
+@keyframes error-message {
+    0% { background: #D32A2A; }
+    100% { background: #A40C0C; }
+}
+
+@keyframes success-message {
+    0% { background: #36BC69; }
+    100% { background: #1E8445; }
+}  
