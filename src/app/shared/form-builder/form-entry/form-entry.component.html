@@ -1,0 +1,51 @@
+<form novalidate [formGroup]="form">
+  <div class="form-group col-xs-12 spacer">   
+    <div [ngSwitch]="entry.controlType">
+        <!--Texbox Start-->
+        <div *ngSwitchCase="'textbox'">
+          <mat-form-field align="end" floatPlaceholder="never" class="expense-full-width">
+              <label [ngClass]="{'has-error': displayMessage[entry.key]}">{{entry.label}}</label>
+              <input matInput [formControlName]="entry.key" [id]="entry.key" 
+                  [type]="entry.type"  #texbox>
+              <mat-hint align="end" *ngIf="entry.maxLength">{{texbox.value.length}} / {{entry.maxLength}}</mat-hint>
+              <mat-error *ngIf="displayMessage[entry.key]">{{displayMessage[entry.key]}}</mat-error>              
+          </mat-form-field>  
+        </div>
+        <!--Texbox End-->
+        <!--Texblock Start-->
+        <div *ngSwitchCase="'textblock'">
+           <mat-form-field  class="expense-full-width" floatPlaceholder="never">
+                <label [ngClass]="{'has-error': displayMessage[entry.key]}">{{entry.label}}</label> 
+                <textarea matInput class="expense-textarea" 
+                          #textblock
+                          [formControlName]="entry.key" ></textarea>
+                <mat-hint align="end" *ngIf="entry.maxLength">{{textblock.value.length}} / {{entry.maxLength}}</mat-hint>
+                <mat-error *ngIf="displayMessage[entry.key]">{{displayMessage[entry.key]}}</mat-error>
+          </mat-form-field>
+        </div>
+        <!--Texblock End-->
+        <!--Currency Start-->
+        <div *ngSwitchCase="'currency'">
+          <mat-form-field align="end" floatPlaceholder="never" class="expense-full-width">
+              <label [ngClass]="{'has-error': displayMessage[entry.key]}">{{entry.label}}</label>
+              <input matInput [formControlName]="entry.key"
+                    [id]="entry.key" type="text" currencyFormatter>
+              <mat-error *ngIf="displayMessage[entry.key]">{{displayMessage[entry.key]}}</mat-error>            
+          </mat-form-field>  
+        </div>
+        <!--Currency End-->        
+        <!--Dropdown Start-->
+        <div *ngSwitchCase="'dropdown'">
+          <mat-form-field align="end" floatPlaceholder="never" class="expense-full-width">
+              <label [ngClass]="{'has-error': displayMessage[entry.key]}" [attr.for]="entry.key">{{entry.label}}</label>      
+              <mat-select [id]="entry.key"  [formControlName]="entry.key" 
+                    floatPlaceholder="never" class="expense-full-width" placeholder="Select" >
+                <mat-option *ngFor="let opt of entry.options" [value]="opt.key">{{opt.value}}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="displayMessage[entry.key]">{{displayMessage[entry.key]}}</mat-error>
+          </mat-form-field>
+        </div>
+        <!--Dropdown End-->          
+     </div>
+  </div> 
+</form>
